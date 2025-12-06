@@ -1,0 +1,93 @@
+site_name: My Docs
+site_description: Python project template
+# site_url: https://localhost:8000
+
+repo_name: NiekHoekstra/template-python
+repo_url: https://github.com/NiekHoekstra/template-python
+edit_uri: edit/main/docs/
+
+strict: false
+
+theme:
+  name: "material"
+
+  palette:
+    - scheme: "default"
+      media: "(prefers-color-scheme: light)"
+      toggle:
+        icon: "material/lightbulb"
+        name: "Switch to dark mode"
+    - scheme: "slate"
+      media: "(prefers-color-scheme: dark)"
+      primary: "blue"
+      toggle:
+        icon: "material/lightbulb-outline"
+        name: "Switch to light mode"
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - toc.follow
+
+nav:
+  - Introduction: "index.md"
+  - Demos:
+    - startup: "demos/00_startup.md"
+
+  - Interface:
+      - API: "interface/api.md"
+  - Features:
+      - Applications: "applications.md"
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/NiekHoekstra/
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/niekhoekstra
+    - icon: fontawesome/solid/globe
+      link: https://niekhoekstra.nl
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
+watch:
+  - docs
+  - mkdocs.yml
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_section_style: list
+            show_root_toc_entry: false
+            members_order: source
+            separate_signature: true
+            filters: ["!^_"]
+            docstring_options:
+              ignore_init_summary: true
+            merge_init_into_class: true
+            parameter_headings: true
+            show_signature_annotations: true
+            show_source: false
+            signature_crossrefs: true
+          inventories:
+            - url: https://docs.python.org/3/objects.inv
