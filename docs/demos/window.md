@@ -1,4 +1,4 @@
-# Startup
+# Window
 
 This is a basic window.
 
@@ -14,6 +14,7 @@ pygame.init()
 
 # Create an OpenGL context with Double Buffering
 pygame.display.set_mode((800, 600), pygame.DOUBLEBUF | pygame.OPENGL)
+pygame.display.set_caption("Simple Window")
 
 # Define an exit timestamp, just in case.
 start = time.time()
