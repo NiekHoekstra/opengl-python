@@ -27,7 +27,7 @@ vertices = np.array([
     0.0, 1.0, z,  # Top vertex
     -1.0, -1.0, z,  # Bottom left vertex
     1.0, -1.0, z  # Bottom right vertex
-], dtype='float32')
+], dtype=np.float32)
 
 import pygame
 from OpenGL import GL
