@@ -4,18 +4,18 @@ Sugar Syntax for *some* clarity.
 
 __all__ = ["VertexData"]
 
+from dataclasses import dataclass, field
 from typing import Self
 
 import numpy as np
 
 
+@dataclass()
 class VertexData:
     """
     VertexData Object for sugar syntax.
     """
-
-    def __init__(self):
-        self._data = []
+    _data: list = field(default_factory=list)
 
     def xyz(self, x: float, y: float, z: float = 0.0) -> Self:
         """
@@ -61,7 +61,7 @@ class VertexData:
         self._data.extend((u, v))
         return self
 
-    def compile(self):
+    def to_array(self):
         """
         Compile the data to array and return it.
         :return: Data.
